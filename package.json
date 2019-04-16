@@ -1,0 +1,19 @@
+{
+  "name": "master-setup",
+  "version": "1.1.1",
+  "private": true,
+  "scripts": {
+    "start": "yarn run stop && yarn run build && yarn run docker",
+    "docker": "docker-compose up -d",
+    "docker:logs": "docker-compose logs -f",
+    "build": "docker-compose up --build",
+    "stop": "docker-compose down"
+  },
+  "bugs": {
+    "url": "https://github.com/bisho1995/nodejs-docker/issues"
+  },
+  "dependencies": {
+    "grommet": "^2.5.5",
+    "grommet-icons": "^4.2.0"
+  }
+}
