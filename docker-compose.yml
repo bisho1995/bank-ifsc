@@ -1,7 +1,7 @@
 version: "2"
 services:
-  ifsc:
-    container_name: ifsc
+  ifsc1:
+    container_name: ifsc1
     # restart: always
     build: ./backend
     volumes:

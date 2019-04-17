@@ -8,7 +8,7 @@ class ErrorCodes {
   }
 
   create422(res) {
-    res.status(422).send({ status: 'Unprocessable entity. Please provide message and email (optional)' });
+    res.status(422).send({ status: 'Unprocessable entity.' });
   }
 }
 

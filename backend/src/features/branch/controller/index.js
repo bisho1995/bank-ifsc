@@ -1,16 +1,23 @@
+const errorCodes = require("../../../lib/errorCodes/errorCodes")
 const Controller = require("../../../lib/generic/controller")
 class Branch extends Controller {
 
     getBranchDetails(ifsc,res) {
         this.findWhere({select: "*",table: "postgres", where: `ifsc=${ifsc}`})
         .then(result=>console.log({result}))
-        .catch(err=>console.log({err}))
+        .catch(err=> {
+            console.log(err)
+            errorCodes.create500(res)
+        })
     }
 
     listBranches(bank,city, res){
         this.findWhere({select: "*",table: "postgres", where: `bank=${bank} and city=${city}`})
         .then(result=>console.log({result}))
-        .catch(err=>console.log({err}))
+        .catch(err=> {
+            console.log(err)
+            errorCodes.create500(res)
+        })
     }
 
     getIndex(req, res, next) {
@@ -21,7 +28,7 @@ class Branch extends Controller {
         } else if(bank && city) {
             this.listBranches(bank,city,res)
         }
-        res.json({status: "Branch System working"})
+        errorCodes.create422(res)
     }
 }
 
