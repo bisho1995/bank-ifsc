@@ -1,10 +1,18 @@
+const client = require("../../../model/postgres/db")
 const errorCodes = require("../../../lib/errorCodes/errorCodes")
 const Controller = require("../../../lib/generic/controller")
 class Branch extends Controller {
 
     getBranchDetails(ifsc,res) {
-        this.findWhere({select: "*",table: "postgres", where: `ifsc=${ifsc}`})
-        .then(result=>console.log({result}))
+        const query = `SELECT br.ifsc,ba.name as bank_name,br.district,br.branch,br.address,br.city,br.state  from branches br inner join banks ba on ba.id=br.bank_id where ifsc=$1`
+        const needle = [ifsc]
+
+        client.query(query,needle)
+        .then(({rows})=>{
+            if(rows.length)
+                res.status(200).send({status: "success",payload: rows[0]})
+            else res.status(400).send({status: "failure",message: "The ifsc code does not exist`"})
+        })
         .catch(err=> {
             console.log(err)
             errorCodes.create500(res)
@@ -27,8 +35,7 @@ class Branch extends Controller {
             this.getBranchDetails(ifsc,res)
         } else if(bank && city) {
             this.listBranches(bank,city,res)
-        }
-        errorCodes.create422(res)
+        } else errorCodes.create422(res)
     }
 }
 
