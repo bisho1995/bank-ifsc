@@ -3,11 +3,7 @@
   "version": "1.1.1",
   "private": true,
   "scripts": {
-    "start:docker": "yarn run stop:docker && yarn run build && yarn run docker",
-    "docker": "docker-compose up -d",
-    "docker:logs": "docker-compose logs -f",
-    "build": "docker-compose up --build",
-    "stop:docker": "docker-compose down"
+    "start": "cd backend && yarn start"
   },
   "bugs": {
     "url": "https://github.com/bisho1995/nodejs-docker/issues"
