@@ -1,7 +1,7 @@
 version: "2"
 services:
-  ifsc1:
-    container_name: ifsc1
+  ifsc:
+    container_name: ifsc
     # restart: always
     build: ./backend
     volumes:
@@ -9,11 +9,14 @@ services:
     ports:
       - "0.0.0.0:3003:3003"
     depends_on:
-      - postgres
-  postgres:
+      - db
+  db:
     image: postgres:11.2-alpine
-    volumes:
-      - ./postgres:/var/lib/postgresql/data
+    # restart: always
+    # volumes:
+    #   - ./postgres:/var/lib/postgresql/data
+    ports:
+      - "0.0.0.0:5432:5432"
     environment:
       - PGHOST=postgres
       - PGDATABASE=postgres
