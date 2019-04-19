@@ -5,9 +5,6 @@
   "scripts": {
     "start": "cd backend && yarn start"
   },
-  "bugs": {
-    "url": "https://github.com/bisho1995/nodejs-docker/issues"
-  },
   "dependencies": {
     "grommet": "^2.5.5",
     "grommet-icons": "^4.2.0"
