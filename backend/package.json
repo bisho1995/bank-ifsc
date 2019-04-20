@@ -10,9 +10,7 @@
     "lint": "eslint ./src",
     "lint:fix": "eslint ./src --fix",
     "dev": "yarn run nodemon ./bin/www",
-    "pm2": "yarn run pm2 start ./bin/www",
-    "pm2:monitor": "yarn run pm2 monit",
-    "pm2:stop": "yarn run pm2 stop all"
+    "forever":"yarn run pm2 start ./bin/www"
   },
   "dependencies": {
     "bluebird": "^3.5.3",
@@ -35,7 +33,7 @@
     "eslint": "^5.15.2",
     "eslint-config-google": "^0.12.0",
     "nodemon": "^1.18.9",
-    "pm2": "^3.2.9"
+    "pm2": "^3.5.0"
   },
   "bugs": {
     "url": "https://github.com/bisho1995/nodejs-docker/issues"
