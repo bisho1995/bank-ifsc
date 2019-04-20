@@ -6,7 +6,7 @@ const client = new Client({
     user: "bisho",
     host: "0.0.0.0",
     database:"ifsc",
-    port: 5433
+    port: 5432
 });
 
 client.connect()
