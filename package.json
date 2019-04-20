@@ -3,6 +3,6 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "start": "cd backend && yarn start"
+    "start": "cd backend && yarn && yarn run forever"
   }
 }
