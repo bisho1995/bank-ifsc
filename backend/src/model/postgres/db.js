@@ -6,7 +6,7 @@ const client = new Client({
     user: "bisho",
     host: "0.0.0.0",
     database:"ifsc",
-    port: 5432
+    port: process.env.NODE_ENV === "production" ? 5432 : 5433
 });
 
 client.connect()
