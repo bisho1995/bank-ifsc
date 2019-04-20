@@ -27,13 +27,13 @@
     "mysql": "^2.16.0",
     "nodemailer": "^5.1.1",
     "pg": "^7.9.0",
-    "pug": "2.0.0-beta11"
+    "pug": "2.0.0-beta11",
+    "pm2": "^3.5.0"
   },
   "devDependencies": {
     "eslint": "^5.15.2",
     "eslint-config-google": "^0.12.0",
-    "nodemon": "^1.18.9",
-    "pm2": "^3.5.0"
+    "nodemon": "^1.18.9"
   },
   "bugs": {
     "url": "https://github.com/bisho1995/nodejs-docker/issues"
